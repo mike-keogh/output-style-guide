@@ -38,17 +38,39 @@ This allows us to reuse generic classnames in different components or modules wi
 We do not create utility classes, instead create a mixin for that utility that accepts a multiplier so that any value can be input.
 
 ```
-$unit: 8px;
+    $unit: 8px;
 
-@mixin padding($where, $multiplier){
-  if($where == "*") {
-    padding: $multiplier * $unit;
-  } else if ($where == "t") {
-    padding-top: $multiplier * $unit
-  } etc...  
-}
+    @mixin padding($where, $multiplier){
+      if($where == "*") {
+        padding: $multiplier * $unit;
+      } else if ($where == "t") {
+        padding-top: $multiplier * $unit
+      } etc...  
+    }
 ```
 
 The `$unit` will always be defined in the designs or in the repo by the designer. There may be a `$unit` for small and medium breakpoints.  
 Those breakpoints will be their own mixins preceded by the size 's-' or
 'm-'.
+
+```
+    @mixin s-padding($where, $multiplier) {
+      ...
+    }
+```
+
+Folder structure for scss is as follows
+
+```
+Root
+  scss  
+    ui
+      _Module.scss
+    layout
+      _grid.scss
+    mixins
+      _padding.scss
+    style.scss  
+```
+
+style.scss imports all the scss files and is compiled to css through a node-sass script in the package.json
