@@ -14,7 +14,8 @@ e.g `<div class="Image-Component">`
 CSS classes that live inside of the component or module are to be lowercase and the developer is to make use if the nested nature of SASS to allow the cascading nature of CSS to apply and also to reduce the amount of code written.
 e.g the following code
 
-```<div class="Image-Component">
+```
+<div class="Image-Component">
     <div class="image" >
       <img src="rkg.svg" />
     </div>
